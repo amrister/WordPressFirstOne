@@ -1,21 +1,16 @@
-<?php get_header(); ?>
+<?php
+    get_header();
+    echo "<div class='container'>";
 
-  <?php
-      if ( have_posts()) {
-        while ( have_posts() ) {
-          the_post();
-  ?>
-
-  <br/>
-  <div class='post'>
-    <h3> <?php  the_title(); ?> </h3>
-    <br/><small> Posted On: <?php  the_time('F j, Y'); ?> At: <?php the_time('g:i A'); ?></small>
-    <p><?php the_content(); ?></p>
-  </div>
-
-  <?php
-        }
+    if (have_posts()) {
+      while ( have_posts() ) {
+        the_post();
+        get_template_part( 'mypostformat', get_post_format());
       }
-   ?>
+    }
 
-<?php get_footer(); ?>
+    get_sidebar();
+
+    echo "</div>";
+    get_footer();
+?>

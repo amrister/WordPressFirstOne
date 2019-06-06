@@ -2,9 +2,9 @@
 /*
   Template Name: Page With Only Title
 */
+  get_header();
+  echo "<div class='container'>";
 
-  get_header(); ?>
-   <?php
        if ( have_posts()) {
          while ( have_posts() ) {
            the_post();
