@@ -9,3 +9,71 @@ h1{
   margin: 50px;
   font-weight: 300;
 }
+footer{
+  padding: 40px 0px 10px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  margin: 100px 0 0;
+}
+.navbar{
+  padding-left: 50px !important;
+  margin-bottom: 50px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-radius: 5px;
+}
+ul,li{
+  list-style-type: none;
+  padding: 0;
+}
+li{
+  font-size: 14px;
+  padding: 10px 20px;
+}
+li.menu-item{
+  display: inline-block;
+}
+.post{
+  border: 1px solid #cccccc60;
+  border-radius: 15px;
+  padding: 20px;
+  width: 500px;
+  margin: 20px 0 50px;
+}
+.post.card{
+  padding: 0;
+}
+.post img{
+  height: 300px;
+}
+.post h3{
+  color: rgb(228, 26, 83);
+  margin: 20px 0 0;
+}
+.post h6{
+  color: rgb(83, 83, 83);
+  font-size: 12px;
+}
+.post h5{
+  color: rgb(83, 83, 83);
+  margin-top: 20px;
+  font-size: 14px;
+}
+.post ul li{
+  padding: 5px 20px;
+  font-size: 12px;
+}
+.row .post{
+  width: auto;
+}
+.post.expanded {
+  border: 0;
+}
+.post.expanded img{
+  /* width: 600px;
+  height: 450px; */
+  display: block;
+  margin-bottom: 50px;
+}
