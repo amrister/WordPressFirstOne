@@ -7,8 +7,8 @@
   // Include Outside Files
   function firstOne_enqueue(){
 
-    wp_enqueue_style('customstyle', get_template_directory_uri().'/css/master.css', array(), '1.0.0' , 'all' );
     wp_enqueue_style( 'bootstrap', get_template_directory_uri().'/css/bootstrap.min.css', array(), '4.1.0' , 'all' );
+    wp_enqueue_style('customstyle', get_template_directory_uri().'/css/master.css', array(), '1.0.0' , 'all' );
 
     wp_enqueue_script('jQuery', get_template_directory_uri().'/js/jquery-3.2.1.min.js' , array() , '3.2.1' , true );
     wp_enqueue_script('bootstrapjs', get_template_directory_uri().'/js/bootstrap.min.js' , array() , '4.1.0' , true );
@@ -44,9 +44,8 @@
   add_theme_support( 'custom-background' );
   add_theme_support( 'custom-header' );
   add_theme_support( 'post-thumbnails' );
-
   add_theme_support( 'post-formats', array( 'aside', 'image', 'video' ) );
-
+  add_theme_support( 'html5', array('search-form'));
 
 /*
     ================================================
@@ -71,5 +70,29 @@
   }
 
   add_action( 'widgets_init', 'firstOne_widget_setup' );
+
+/*
+    ================================================
+    Add include Files
+    ================================================
+*/
+
+  require  get_template_directory().'/include/walker.php';
+
+/*
+    ================================================
+    Remove WP Version Meta
+    ================================================
+*/
+
+  function firstOne_remove_version(){
+      return '';
+  }
+  add_filter( 'the_generator', 'firstOne_remove_version');
+
+
+
+
+
 
  ?>

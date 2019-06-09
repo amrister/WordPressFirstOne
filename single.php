@@ -30,8 +30,24 @@
 
     }
   }
+
+
   echo "</div>";
+  ?>
+
+  <div class="row">
+    <div class="col-4 text-left">
+      <?php previous_post_link(); ?>
+    </div>
+    <div class="col-4 text-right">
+      <?php next_post_link(); ?>
+    </div>
+  </div>
+
+  <?php
+
   echo "</div>";
+
   get_footer();
 
 ?>

@@ -13,6 +13,7 @@
    <?php
          }
        }
-    ?>
 
- <?php get_footer(); ?>
+  echo "</div>";
+  get_footer();
+ ?>
