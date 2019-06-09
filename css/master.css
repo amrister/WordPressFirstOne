@@ -1,13 +1,18 @@
 body{
   margin: 0;
   padding: 0;
-  color: #fff;
-  background-color: #126667;
+  color: #333;
+  /* background-color: #126667; */
   font-family: "Roboto";
 }
 h1{
   margin: 50px;
   font-weight: 300;
+}
+h1.big{
+  width: 100%;
+  font-size: 85px;
+  font-family: 'another day in paradise';
 }
 footer{
   padding: 40px 0px 10px;
@@ -17,12 +22,16 @@ footer{
   font-size: 18px;
   margin: 100px 0 0;
 }
+.blog .row{
+  justify-content: space-between;
+}
 .navbar{
   padding-left: 50px !important;
   margin-bottom: 50px;
   padding-top: 0px;
   padding-bottom: 0px;
   border-radius: 5px;
+  overflow: hidden;
 }
 ul,li{
   list-style-type: none;
@@ -41,6 +50,7 @@ li.menu-item{
   padding: 20px;
   width: 500px;
   margin: 20px 0 50px;
+  overflow: hidden;
 }
 .post.card{
   padding: 0;
@@ -76,4 +86,45 @@ li.menu-item{
   height: 450px; */
   display: block;
   margin-bottom: 50px;
+}
+.search-form{
+  width: 100%;
+  margin: 20px auto 50px;
+}
+.search-form label{
+  width: 92%;
+}
+.search-form input[type='search']{
+  width: 100%;
+  border: 1px solid #eee;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.search-form input[type='submit']{
+  border: 0;
+  padding: 5px 10px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  margin-left:10px;
+}
+.post.search{
+  /* border: 0; */
+}
+.post.search img{
+  height: auto;
+}
+.post.search h3{
+  font-size: 22px;
+  margin:0 0 20px;
+}
+.navbar{
+  padding: 0;
+  overflow: visible;
+}
+.navbar-nav li.active{
+  background-color: #ccc;
+}
+.widgets-area h2{
+  color: #333;
 }

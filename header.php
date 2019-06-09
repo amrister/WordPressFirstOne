@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html <?php language_attributes(); ?> >
   <head>
-    <meta charset="utf-8">
-    <title>First Experience</title>
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <title><?php bloginfo('name'); wp_title('|'); ?></title>
+    <meta name="description" content="<?php bloginfo('description'); ?>">
     <?php wp_head(); ?>
   </head>
 
@@ -28,17 +29,16 @@
         <ul class="navbar-nav mr-auto">
         </ul>
         <div class="form-inline my-2 my-lg-0">
-          <ul class="navbar-nav mr-auto">
-            <?php
-              wp_nav_menu(
-                array(
-                  'theme_location'=>'primary',
-                  'container'=>'false',
-                  'menu_class'=>'navbar-nav'
-                )
-              );
-             ?>
-          </ul>
+          <?php
+            wp_nav_menu(
+              array(
+                'theme_location'=>'primary',
+                'container'=>'false',
+                'menu_class'=>'nav navbar-nav mr-auto',
+                'walker' => new Walker_Nav_Primary(),
+              )
+            );
+           ?>
         </div>
       </div>
     </nav>

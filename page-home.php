@@ -1,6 +1,7 @@
 <?php
     get_header();
     echo "<div class='container'>";
+    get_search_form();
 
     /*
     // Print Lastest Post

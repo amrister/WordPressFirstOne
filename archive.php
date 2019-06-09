@@ -2,14 +2,12 @@
     get_header();
 
     echo "<div class='container'>";
+      echo "<header class='page-head text-center'>";
+      the_archive_title( $before = '<h1 class="archive-title">', $after = '</h1>' );
+      the_archive_description( $before = '<p class="archive-description">', $after = '</p>' );
+      echo "<hr /></header>";
       echo "<div class='row'>";
         echo "<div class='col-9'>";
-          $currentPage = ( get_query_var('paged')) ? get_query_var('paged') : 1;
-          $args = array(
-            'posts_per_page'=>2,
-            'paged' => $currentPage,
-          );
-          query_posts($args);
           if (have_posts()) {
             echo "<div class='row'>";
             while ( have_posts() ) {
@@ -20,7 +18,6 @@
             }
             echo "</div>";
           }
-          wp_reset_query();
         echo "</div>";
         echo "<div class='col-3'>";
           get_sidebar();
@@ -29,12 +26,7 @@
       echo "<div class='row'>";
         echo "<div class='col-9'>";
           echo "<div class='row'>";
-            echo "<div class='col-6 text-left'>";
-              previous_posts_link('< Newer');
-            echo "</div>";
-            echo "<div class='col-6 text-right'>";
-              next_posts_link('Older >');
-            echo "</div>";
+            the_post_navigation();
           echo "</div>";
          echo "</div>";
       echo "</div>";
