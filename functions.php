@@ -90,9 +90,110 @@
   }
   add_filter( 'the_generator', 'firstOne_remove_version');
 
+/*
+    ================================================
+    Custom Post Type ( Portfolio)
+    ================================================
+*/
+  function firstOne_custom_post_type(){
+
+  	$labels = array(
+  		'name' => 'Portfolio',
+  		'singular_name' => 'Portfolio',
+  		'add_new' => 'Add Item',
+  		'all_items' => 'All Items',
+  		'add_new_item' => 'Add Item',
+  		'edit_item' => 'Edit Item',
+  		'new_item' => 'New Item',
+  		'view_item' => 'View Item',
+  		'search_item' => 'Search Portfolio',
+  		'not_found' => 'No items found',
+  		'not_found_in_trash' => 'No items found in trash',
+  		'parent_item_colon' => 'Parent Item'
+  	);
+  	$args = array(
+  		'labels' => $labels,
+  		'public' => true,
+  		'has_archive' => true,
+  		'publicly_queryable' => true,
+  		'query_var' => true,
+  		'rewrite' => true,
+  		'capability_type' => 'post',
+  		'hierarchical' => false,
+  		'supports' => array(
+  			'title',
+  			'editor',
+  			'excerpt',
+  			'thumbnail',
+  			'revisions',
+  		),
+  		// 'taxonomies' => array('category', 'post_tag'),
+  		'menu_position' => 5,
+  		'exclude_from_search' => false
+  	);
+  	register_post_type('portfolio',$args);
+
+  }
+    add_action('init','firstOne_custom_post_type');
+
+/*
+    ================================================
+    Custom Taxonomies ( Tag, Category )
+    ================================================
+*/
+
+    function firstOne_create_custom_taxonomies(){
+
+      // Add New Hierarical Taxonomy
+      $labels = array(
+        'name' => 'Fields',
+    		'singular_name' => 'Field',
+    		'search_items' => 'Search Fields',
+    		'all_items' => 'All Fields',
+    		'parent_item' => 'Parent Field',
+    		'parent_item_colon' => 'Parent Field:',
+    		'edit_item' => 'Edit Field',
+    		'update_item' => 'Update Field',
+    		'add_new_item' => 'Add New Work Field',
+    		'new_item_name' => 'New Field Name',
+    		'menu_name' => 'Fields'
+      );
+      $args = array(
+        'hierarchical' => true,
+        'labels' => $labels,
+        'show_ui' => true, // To Show UI For User in Control Pannel
+        'show_admin_column' => true, // To Appear in Column Section
+        'query_var' => true,
+        'rewrite' => array( 'slug' => 'field')
+      );
+      register_taxonomy('field', array('portfolio'), $args);
 
 
+      // Add New Nonhierarical Taxonomy
+      register_taxonomy('software', 'portfolio' ,array(
+          'labels' => array('name'=>'Software'),
+          'hierarchical' => false,
+          'rewrite' => array('slug' => 'software'),
+      ));
 
+    }
+    add_action('init','firstOne_create_custom_taxonomies');
 
+/*
+    ================================================
+    Custom Taxonomies ( Tag, Category )
+    ================================================
+*/
 
- ?>
+  function firstOne_get_terms($postID,$termName){
+    $i=0;
+    $output = '';
+    $termsList = wp_get_post_terms( $postID, $termName);
+    foreach ($termsList as $element) {
+      $i++;
+      if($i > 1){ $output.= ', '; }
+      $output.= "<a href='".get_term_link($element)."'>".$element->name."</a>";
+    }
+    return $output;
+  }
+?>

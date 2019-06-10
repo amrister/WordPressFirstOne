@@ -1,7 +1,7 @@
 <?php get_header(); ?>
   <div class="container">
     <div class="row">
-      <h1 class="big text-center">Blash Faty Ya 7oby</h1>
+      <h1 class="big text-center"> <span style="color:#e63939">404!!</span><br>Blash Faty Ya 7oby</h1>
       <div class="content">
         <h3>You Can Try Of Search, Or One of The Links Below</h3>
         <?php get_search_form(); ?>
